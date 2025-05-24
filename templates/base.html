@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
+    {% block head %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li class="header">
+                <a class="header" href="{{url_for('progress.index')}}">Home</a>
+            </li>
+            <li class="header">
+                <a class="header" href="{{url_for('progress.leetcode')}}">Leetcode</a>
+            </li>
+            <li class="header">
+                <a class="header" href="{{url_for('progress.project')}}">Project</a>
+            </li>
+            <li class="header">
+                <a class="header" href="{{url_for('progress.interview')}}">Interview</a>
+            </li>
+            {% if user %}
+                <li class="user">
+                    <a class="log" href="{{url_for('auth.logout')}}">Logout</a>
+                </li>
+                <li class="user">
+                    <a class="log" href="{{url_for('progress.settarget')}}">{{user.username}}</a>
+                </li>
+            {% else %}
+                <li class="user">
+                    <a class="log" href="{{url_for('auth.register')}}">Register</a>
+                </li>
+                <li class="user">
+                    <a class="log" href="{{url_for('auth.login')}}">Login</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    <div>
+        {% block body %}{% endblock %}
+    </div>
+</body>
+</html>

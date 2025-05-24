@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/pages.css')}}">
+{% endblock %}
+
+{% block title %}
+    Leetcode
+{% endblock %}
+
+{% block body %}
+    <div class="area" id="leetcode">
+        <div class="suboverview">
+            <table>
+                <tr>
+                    <td class="left">
+                        <div class="bullet">
+                            Leetcode<br>Progress
+                        </div>
+                    </td>
+                    <td class="middle">
+                        <p class="suboverall">Your <b>Leetcode</b> progress:<span class="subpercentage">{{leetcodeprogress}}%</span></p>
+                        <p class="suboverall">Expected progress by now:<span class="subpercentage">{{progresstodate}}%</span></p>
+                    </td>
+                    <td class="right">
+                        <div class="subupper">
+                            <div style="width: {{leetcodeprogress}}%; background-color: #87ceeb; height: 20px; margin: 0;"></div>
+                        </div>
+                        <div class="blank"></div>
+                        <div class="sublower">
+                            <div style="width: {{progresstodate}}%; background-color: #4caf50; height: 20px; margin: 0;"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <form id="leetcodeupdate" method="POST">
+        <div class="currentupdate">
+            I have solved
+            <input class="currentupdate" type="number" min="1" max="9999" name="currentleetcode" placeholder="{{currentleetcode}}">
+             leetcode problems.
+            <button type="submit">Update</button>
+        </div>
+    </form>
+
+{% endblock %}

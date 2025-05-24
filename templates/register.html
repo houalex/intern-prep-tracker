@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register.css')}}">
+{% endblock %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h3 class="reg">Create an Account</h3>
+        <form id="register" action="" target="" method="POST">
+            <ul>
+                <li class="name">
+                    <input class="regname" type="text" name="firstname" placeholder="First Name" required>
+                    <input class="regname" type="text" name="lastname" placeholder="Last Name" required>
+                </li>
+                <li>
+                    <input class="reg" type="email" name="email" placeholder="Email" required>
+                </li>
+                <li>
+                    <input id="password" class="reg" type="password" placeholder="Password (no more than 20 letters)" required>
+                </li>
+                <li>
+                    <input id="confirmpwd" class="reg" type="password" name="password" placeholder="Confirm Password" required>
+                </li>
+
+                <span id="error"></span>
+
+                <li class="button">
+                    <button class="blue" type="submit">Submit</button>
+                    <button class="grey" type="reset">Reset</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <script>
+        document.getElementById("register").addEventListener('submit', function(event){
+            const pwd = document.getElementById("password").value;
+            const cpwd = document.getElementById("confirmpwd").value;
+            const message = document.getElementById("error");
+            if (pwd !== cpwd) {
+                message.textContent = "Please enter same password.";
+                event.preventDefault();
+            }
+            else {
+                message.textContent = "";
+            }
+
+        });
+    </script>
+
+{% endblock %}

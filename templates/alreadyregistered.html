@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register.css')}}">
+{% endblock %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h3 class="reg">Sorry, this email is already registered.</h3>
+        <h3 class="reg">Please login.</h3>
+        <ul>
+            <li class="button">
+                <button class="blue" onclick="window.location.href='{{url_for('auth.login')}}'">Login</button>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

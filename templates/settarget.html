@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register.css')}}">
+{% endblock %}
+
+{% block title %}
+    Setting Targets
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h3 class="reg">Please set your targets.</h3>
+        <p class="setting">You can modify it later by clicking your initials.</p>
+        <form id="register" action="" target="" method="POST">
+            <div class="question">
+                <ul>
+                    <li class="question">
+                        When do you want to complete your preparation?
+                    </li>
+                    <li class="question">
+                        When do you want to start your preparation?
+                    </li>
+                    <li class="question">
+                        How many leetcode problems have you not solved?
+                    </li>
+                    <li class="question">
+                        How many projects have your not completed?
+                    </li>
+                </ul>
+            </div>
+            <div class="answer">
+                    <ul>
+                        <li class="answer">
+                            <input class="date" type="text" name="targetdate" placeholder="{{target.targetdate}}" onfocus="(this.type='date')">
+                        </li>
+                        <li class="answer">
+                            <input class="date" type="text" name="startdate" placeholder="{{today}}" onfocus="(this.type='date')">
+                        </li>
+                        <li class="answer">
+                            <input class="target" type="number" name="targetleetcode" min="1" max="999" placeholder="{{target.targetleetcode}}">
+                        </li>
+                        <li class="answer">
+                            <input class="target" type="number" name="targetproject" min="1" max="10" placeholder="{{target.targetproject}}">
+                        </li>
+                    </ul>
+            </div>
+            <ul>
+                <li class="button">
+                    <button class="blue" type="submit">Submit</button>
+                    <button class="grey" type="reset">Reset</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+{% endblock %}

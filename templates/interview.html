@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/pages.css')}}">
+{% endblock %}
+
+{% block title %}
+    Interview
+{% endblock %}
+
+{% block body %}
+    <div class="area" id="interview">
+        <div class="suboverview">
+            <table>
+                <tr>
+                    <td class="left">
+                        <div class="bullet">
+                            Interview<br>Progress
+                        </div>
+                    </td>
+                    <td class="middle">
+                        <p class="suboverall">Your <b>Interview</b> progress:<span class="subpercentage">{{interviewprogress}}%</span></p>
+                        <p class="suboverall">Expected progress by now:<span class="subpercentage">{{progresstodate}}%</span></p>
+                    </td>
+                    <td class="right">
+                        <div class="subupper">
+                            <div style="width: {{interviewprogress}}%; background-color: #87ceeb; height: 20px; margin: 0;"></div>
+                        </div>
+                        <div class="blank"></div>
+                        <div class="sublower">
+                            <div style="width: {{progresstodate}}%; background-color: #4caf50; height: 20px; margin: 0;"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <form id="interviewupdate" method="POST">
+        <div class="currentupdate">
+            <ul>
+                <li class="checklist">
+                    I have completed my resume.
+                    {% if resume %}
+                    <input type="checkbox" name="resume" value="True" checked>
+                    {% else %}
+                    <input type="checkbox" name="resume" value="True">
+                    {% endif %}
+                </li>
+                <br/>
+                <li class="checklist">
+                    I am prepared for bq.
+                    {% if bq %}
+                    <input type="checkbox" name="bq" value="True" checked>
+                    {% else %}
+                    <input type="checkbox" name="bq" value="True">
+                    {% endif %}
+                </li>
+                <br/>
+                <li class="checklist">
+                    I am prepared for tq.
+                    {% if tq %}
+                    <input type="checkbox" name="tq" value="True" checked>
+                    {% else %}
+                    <input type="checkbox" name="tq" value="True">
+                    {% endif %}
+                </li>
+                <br/>
+                <li class="checklist">
+                    I have completed mock interview.
+                    {% if mock %}
+                    <input type="checkbox" name="mock" value="True" checked>
+                    {% else %}
+                    <input type="checkbox" name="mock" value="True">
+                    {% endif %}
+                </li>
+                <li class="updatebutton">
+                    <button type="submit">Update</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+
+{% endblock %}

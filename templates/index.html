@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/pages.css')}}">
+{% endblock %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+    <div class="overview">
+        <div class="overviewtitle">
+            <h3>Overall Progress</h3>
+        </div>
+        <div class="question">
+                <p class="overall">Your overall progress:<span class="percentage">{{currentprogress}}%</span></p>
+                <p class="overall">Expected progress by now:<span class="percentage">{{progresstodate}}%</span></p>
+        </div>
+        <div class="answer">
+            <div class="barcontainer">
+                <div class="upper">
+                    <div style="width: {{currentprogress}}%; background-color: {{barcolor}}; height: 25px; margin: 0;"></div>
+                </div>
+            </div>
+            <div class="barcontainer">
+                <div class="lower">
+                    <div style="width: {{progresstodate}}%; background-color: #4caf50; height: 25px; margin: 0;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="comment">Please go to each section to update your progress.</div>
+    </div>
+    <a class="section" href="{{url_for('progress.leetcode')}}">
+        <div class="area" id="leetcode">
+            <div class="suboverview">
+                <table>
+                    <tr>
+                        <td class="left">
+                            <div class="bullet">
+                                Leetcode<br>Progress
+                            </div>
+                        </td>
+                        <td class="middle">
+                            <p class="suboverall">Your <b>Leetcode</b> progress:<span class="subpercentage">{{leetcodeprogress}}%</span></p>
+                            <p class="suboverall">Expected progress by now:<span class="subpercentage">{{progresstodate}}%</span></p>
+                        </td>
+                        <td class="right">
+                            <div class="subupper">
+                                <div style="width: {{leetcodeprogress}}%; background-color: #87ceeb; height: 20px; margin: 0;"></div>
+                            </div>
+                            <div class="blank"></div>
+                            <div class="sublower">
+                                <div style="width: {{progresstodate}}%; background-color: #4caf50; height: 20px; margin: 0;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </a>
+    <a class="section" href="{{url_for('progress.project')}}">
+        <div class="area" id="project">
+            <div class="suboverview">
+                <table>
+                    <tr>
+                        <td class="left">
+                            <div class="bullet">
+                                Project<br>Progress
+                            </div>
+                        </td>
+                        <td class="middle">
+                            <p class="suboverall">Your <b>Project</b> progress:<span class="subpercentage">{{projectprogress}}%</span></p>
+                            <p class="suboverall">Expected progress by now:<span class="subpercentage">{{progresstodate}}%</span></p>
+                        </td>
+                        <td class="right">
+                            <div class="subupper">
+                                <div style="width: {{projectprogress}}%; background-color: #87ceeb; height: 20px; margin: 0;"></div>
+                            </div>
+                            <div class="blank"></div>
+                            <div class="sublower">
+                                <div style="width: {{progresstodate}}%; background-color: #4caf50; height: 20px; margin: 0;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </a>
+    <a class="section" href="{{url_for('progress.interview')}}">
+        <div class="area" id="interview">
+            <div class="suboverview">
+                <table>
+                    <tr>
+                        <td class="left">
+                            <div class="bullet">
+                                Interview<br>Progress
+                            </div>
+                        </td>
+                        <td class="middle">
+                            <p class="suboverall">Your <b>Interview</b> progress:<span class="subpercentage">{{interviewprogress}}%</span></p>
+                            <p class="suboverall">Expected progress by now:<span class="subpercentage">{{progresstodate}}%</span></p>
+                        </td>
+                        <td class="right">
+                            <div class="subupper">
+                                <div style="width: {{interviewprogress}}%; background-color: #87ceeb; height: 20px; margin: 0;"></div>
+                            </div>
+                            <div class="blank"></div>
+                            <div class="sublower">
+                                <div style="width: {{progresstodate}}%; background-color: #4caf50; height: 20px; margin: 0;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </a>
+{% endblock %}
